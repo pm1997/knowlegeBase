@@ -1,0 +1,188 @@
+\documentclass[
+	12pt,
+	BCOR=5mm,
+	DIV=12,
+	footheight=30pt,
+	headinclude=on,
+	footinclude=off,
+	parskip=half,
+	bibliography=totoc,
+	listof=entryprefix,
+	toc=listof,
+	numbers=noenddot,
+	plainfootsepline]{scrreprt}
+\input{config}
+
+\definecolor{amethyst}{rgb}{0.2, 0.4, 0.6}
+\definecolor{orange}{rgb}{1, 0.9, 0.0}
+\definecolor{grey}{rgb}{0.5, 0.5, 0.5}
+
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\green}[1]{{\color{green}#1}}
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\grey}[1]{{\color{grey}#1}}
+\newcommand{\el}{\!\in\!}
+
+{\theorembodyfont{\sf}
+\newtheorem{Definition}{Definition}
+\newtheorem{Theorem}[Definition]{Theorem}
+\newtheorem{Proposition}[Definition]{Proposition}
+\newtheorem{Lemma}[Definition]{Lemma}
+\newtheorem{Corollary}[Definition]{Corollary}
+}
+
+
+%------------------------------------------------------------------------------------
+% Farben definieren
+%------------------------------------------------------------------------------------
+\definecolor{hellgelb}{rgb}{1,1,1} 
+\definecolor{colKeys}{rgb}{0,0,1} 
+\definecolor{colIdentifier}{rgb}{1,0,0} 
+%\definecolor{colComments}{rgb}{0.66,0.66,0.66} 
+\definecolor{colComments}{rgb}{0.5,0.5,0.5} 
+\definecolor{colString}{rgb}{0,0.5,0} 
+\usepackage[onehalfspacing]{setspace}
+\definecolor{mxBlue}{RGB}{0,33,99}
+%-------------------------------------------------------------------------------------
+
+\usepackage{listings}
+
+\lstset{
+    float=hbp,
+    basicstyle=\ttfamily\footnotesize,
+    identifierstyle=\color{colIdentifier},
+    keywordstyle=\color{mxBlue},
+    stringstyle=\color{colString},
+    commentstyle=\color{colComments},
+    columns=flexible,
+    tabsize=3,
+    frame=single,
+    extendedchars=false,
+    showspaces=false,
+    showstringspaces=false,
+    numbers=right,
+    numberstyle=\tiny,
+    breaklines=false,
+    backgroundcolor=\color{hellgelb},
+    breakautoindent=false,
+    captionpos=b
+} 
+%-----------------------------------------------------------------------------------
+% C++ definieren
+%-----------------------------------------------------------------------------------
+\lstdefinelanguage{python}{
+  keywords={new, true, false, def, return, null, catch, switch, for, if, in, while, do, else, case, break, cout, cerr, void, int , Json,length,Value, string, or , == },
+  keywordstyle=\color{mxBlue}\bfseries,
+  ndkeywords={class, boolean,ui,user_config_j ,system_config_j , this},
+  ndkeywordstyle=\color{gray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{"""}{"""},
+  commentstyle=\color{colComments}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+%------------------------------------------------------------------------------------------------------------
+
+% todo definieren ----------------------------------------------------
+%\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+%\newcommand{\unsure}[1]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red]{#1}}
+%\newcommand{\change}[1]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue]{#1}}
+%\newcommand{\info}[1]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{#1}}
+%\newcommand{\improvement}[1]{\todo[linecolor=lime,backgroundcolor=lime!25,bordercolor=lime]{#1}}
+%\newcommand{\thiswillnotshow}[1]{\todo[disable]{#1}}
+
+%----Wörter formatieren-----------------------------------
+\newcommand{\ot}{Othello}
+\newcommand{\gtheorie}{Spieltheorie}
+\newcommand{\board}{Board}
+\newcommand{\state}{Spielzustand}
+\newcommand{\states}{Spielzustands}
+\newcommand{\gtree}{Spielbaum}
+\newcommand{\gtrees}{Spielbaumes}
+\newcommand{\code}[1]{\mxZitat{\texttt{#1}}} 
+\newcommand{\mxZitat}[1]{\glqq{}#1\grqq{}} 
+\newcommand{\abab}{Alpha\--Beta\--Ab\-schneiden}
+\newcommand{\ababs}{Alpha\--Beta\--Ab\-schneidens}
+\newcommand{\abp}{Alpha\--Beta\--Pru\-ning}
+\newcommand{\mc}{Monte\--Carlo}
+\vbadness=\maxdimen
+
+\newcommand{\mxPicture}[5]{\XPicture{#1}{#2}{#3}{#4}{#5}}
+
+\newcommand{\XPicture}[5]{\mxMinipage{\centering \XGraphic{#1}{#2} \captionof{figure}[#3]{#4} \vspace*{10pt} \label{#5} \vspace*{20pt} }}
+\newcommand{\mxMinipage}[1]{\begin{minipage}{\textwidth} #1 \end{minipage}}
+\newcommand{\XGraphic}[2]{\includegraphics[width=#1]{#2}}
+
+\graphicspath{{./Bilder/}}
+
+\title{Computernetzwerke \\[0.3cm]
+      --- CompTIA Network+ Vorbereitung---}
+\author{Patrick Müller}
+\date{\today}
+
+\newcommand{\so}[0]{\mathtt{S\textsubscript{0}}}
+
+
+% später entfernen!! ---------------------------------------
+\setlength {\marginparwidth }{2cm}
+% ----------------------------------------------------------
+
+
+
+\begin{document}
+\TitelDerArbeit{Computernetzwerke}
+\UnterTitelDerArbeit{--- CompTIA Network+ Vorbereitung---}
+\AutorDerArbeit{Patrick Müller}
+\Kurs{}
+
+\input{titlepage}
+\pagenumbering{roman} % Römische Seitennummerierung
+
+\normalfont
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+\newpage
+
+\input{abkuerzungen}
+%\ohead{Acronyms} % Neue Header-Definition
+
+%	Abbildungsverzeichnis
+\listoffigures
+
+%	Tabellenverzeichnis
+\listoftables
+
+%	Listingsverzeichnis
+\lstlistoflistings
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{grundlagen}
+
+\appendix
+\ihead{\appendixname~\thechapter}
+
+\include{anhang}
+
+% später entfernen!! ----------------------------------------
+%\newpage
+%\listoftodos[Notes]
+% -----------------------------------------------------------
+
+% 	Algorithmenverzeichnis
+%\listofalgorithms
+
+%	Literaturverzeichnis
+\printbibliography[title=Literaturverzeichnis]
+\cleardoublepage
+
+
+%\bibliographystyle{alpha}
+%\bibliography{quellen}
+
+\end{document}
